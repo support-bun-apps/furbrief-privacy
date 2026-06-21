@@ -1,86 +1,207 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>特定商取引法に基づく表示 - FurBrief</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-         color: #212121; background: #fff; line-height: 1.7; font-size: 15px; }
-  .container { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
-  h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .app-name { color: #757575; font-size: 14px; margin-bottom: 32px; }
-  .updated { font-size: 13px; color: #757575; margin-bottom: 24px; }
-  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-  th, td { text-align: left; padding: 14px 12px; border-bottom: 1px solid #e0e0e0;
-            vertical-align: top; }
-  th { width: 38%; font-weight: 600; color: #424242;
-       background: #f5f5f5; white-space: nowrap; font-size: 14px; }
-  td { font-size: 14px; }
-  a { color: #212121; }
-  @media (max-width: 480px) {
-    th { width: 42%; font-size: 13px; }
-    td { font-size: 13px; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表示 - FurBrief</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 24px;
+        }
+        .lang-switcher button {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-left: 6px;
+            color: #555;
+        }
+        .lang-switcher button.active {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+        }
+        h1 { font-size: 24px; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { font-size: 18px; margin-top: 30px; color: #000; }
+        p { font-size: 14px; color: #555; margin: 10px 0; }
+        ul { font-size: 14px; color: #555; margin: 10px 0; padding-left: 22px; }
+        li { margin: 4px 0; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        th { width: 30%; background-color: #fafafa; font-weight: bold; font-size: 14px; color: #333; }
+        td { font-size: 14px; color: #555; line-height: 1.7; }
+        .note-box {
+            background-color: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .footer { margin-top: 50px; font-size: 13px; color: #999; text-align: center; }
+        .hidden { display: none; }
+        a { color: #2a6db5; }
+        nav.crosslink { font-size: 13px; margin-bottom: 18px; }
+        nav.crosslink a { margin-right: 14px; }
+    </style>
 </head>
 <body>
 <div class="container">
-  <h1>特定商取引法に基づく表示</h1>
-  <p class="app-name">FurBrief</p>
-  <p class="updated">最終更新日：2026年6月14日</p>
+    <div class="lang-switcher">
+        <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
+        <button id="btn-en" onclick="setLang('en')">English</button>
+    </div>
+    <nav class="crosslink">
+        <a href="index.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="tokusho.html">特定商取引法に基づく表示</a>
+    </nav>
 
-  <table>
-    <tr>
-      <th>販売業者</th>
-      <td>BunDev</td>
-    </tr>
-    <tr>
-      <th>所在地</th>
-      <td>〒105-0013<br>東京都港区浜松町２丁目２番１５号<br>浜松町ダイヤビル２Ｆ</td>
-    </tr>
-    <tr>
-      <th>お問い合わせ</th>
-      <td><a href="mailto:support.bun.apps@gmail.com">support.bun.apps@gmail.com</a><br>
-          <span style="font-size:13px;color:#757575;">※お電話でのお問い合わせは受け付けておりません</span></td>
-    </tr>
-    <tr>
-      <th>販売商品</th>
-      <td>FurBrief Proプラン（アプリ内課金・買い切り）</td>
-    </tr>
-    <tr>
-      <th>販売価格</th>
-      <td>¥500（税込）<br>
-          <span style="font-size:13px;color:#757575;">※Google Playの価格設定に準じます。表示価格は変更になる場合があります</span></td>
-    </tr>
-    <tr>
-      <th>支払い方法</th>
-      <td>Google Playストアでのお支払い方法に準じます<br>（クレジットカード・キャリア決済・Google Payなど）</td>
-    </tr>
-    <tr>
-      <th>支払い時期</th>
-      <td>購入手続き完了時</td>
-    </tr>
-    <tr>
-      <th>商品の提供時期</th>
-      <td>購入完了後、即時にProプランの機能が有効になります</td>
-    </tr>
-    <tr>
-      <th>動作環境</th>
-      <td>Android 8.0 以上</td>
-    </tr>
-    <tr>
-      <th>返品・キャンセルについて</th>
-      <td>デジタルコンテンツの性質上、購入後の返品・キャンセルは原則承っておりません。<br>
-          ただし、Google Playの返金ポリシーに基づき、購入から一定期間内はGoogle Playを通じた返金申請が可能な場合があります。<br>
-          <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" style="font-size:13px;">Google Play 返金ポリシーについて</a></td>
-    </tr>
-    <tr>
-      <th>特記事項</th>
-      <td>本商品はアプリ内課金商品です。購入は一度限りの買い切り型であり、定期課金（サブスクリプション）ではありません。同一Googleアカウントでの購入復元が可能です。</td>
-    </tr>
-  </table>
+    <!-- 日本語 -->
+    <div id="content-ja">
+        <h1>特定商取引法に基づく表記</h1>
+        <table>
+            <tr>
+                <th>販売業者</th>
+                <td>BunDev</td>
+            </tr>
+            <tr>
+                <th>代表者</th>
+                <td>非公開<br>※請求があった場合は遅滞なく開示します。</td>
+            </tr>
+            <tr>
+                <th>所在地</th>
+                <td>〒105-0013<br>東京都港区浜松町２丁目２番１５号 浜松町ダイヤビル２Ｆ</td>
+            </tr>
+            <tr>
+                <th>お問い合わせ先</th>
+                <td>support.bun.apps@gmail.com<br>※電話番号については、上記メールアドレス宛にご請求いただいた場合、遅滞なく開示します。</td>
+            </tr>
+            <tr>
+                <th>販売商品</th>
+                <td>FurBrief Proプラン（買い切り型アプリ内課金）<br>
+                    内容：2匹目以降のペット登録・写真アイコン設定・写真添付枚数無制限・通院記録フィルタ・ホーム画面ウィジェット・受診前メモテンプレート・Googleドライブへのエクスポート</td>
+            </tr>
+            <tr>
+                <th>販売価格</th>
+                <td>¥500（税込）<br>※ アプリ内の購入画面に表示される価格が最終販売価格です。</td>
+            </tr>
+            <tr>
+                <th>代金の支払い時期</th>
+                <td>購入確定時にGoogle Play決済を通じてお支払いいただきます。</td>
+            </tr>
+            <tr>
+                <th>商品の引き渡し時期</th>
+                <td>決済手続き完了後、アプリ内で即時にプレミアム機能が有効化されます。</td>
+            </tr>
+            <tr>
+                <th>返品・キャンセル</th>
+                <td>デジタルコンテンツの性質上、購入確定後の返品および返金は原則として受け付けておりません。ただし、Google Playストアのポリシーに基づく払い戻しについては、Google社の定める手続きに従います。<br>
+                    なお、本商品はデジタルコンテンツであるため、特定商取引法に基づくクーリング・オフ制度の対象ではありません。</td>
+            </tr>
+            <tr>
+                <th>動作環境</th>
+                <td>Android 8.0（API レベル 26）以上を搭載したデバイス。</td>
+            </tr>
+            <tr>
+                <th>特記事項</th>
+                <td>本商品（FurBrief Premium）は1回の購入で、同一Googleアカウントに紐づく複数デバイスでご利用いただけます。機種変更後もアプリ内の「購入を復元」機能でProプランを引き継げます。<br>
+                    本アプリはペット受診記録の管理を補助するツールであり、獣医師の診断に代わるものではありません。</td>
+            </tr>
+        </table>
+        <div class="footer">
+            最終更新日：2026年06月21日<br>
+            © 2026 BunDev
+        </div>
+    </div>
+
+    <!-- English -->
+    <div id="content-en" class="hidden">
+        <h1>Legal Notice</h1>
+        <div class="note-box">
+            This page contains disclosures required under Japan's Act on Specified Commercial Transactions. The following information is provided for transparency to all users.
+        </div>
+
+        <table>
+            <tr>
+                <th>Seller</th>
+                <td>BunDev (Independent Developer)</td>
+            </tr>
+            <tr>
+                <th>Representative</th>
+                <td>Not publicly disclosed<br>Will be disclosed promptly upon request.</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>support.bun.apps@gmail.com</td>
+            </tr>
+            <tr>
+                <th>Product</th>
+                <td>FurBrief Premium (one-time in-app purchase)<br>
+                    Includes: unlimited pets, custom photo icon, unlimited photo attachments, visit record filters, home screen widget, pre-visit memo templates, Google Drive export</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>¥500 (tax included)<br>As displayed on the purchase screen within the app.</td>
+            </tr>
+            <tr>
+                <th>Payment</th>
+                <td>Charged at the time of purchase via Google Play.</td>
+            </tr>
+            <tr>
+                <th>Delivery</th>
+                <td>Premium features are activated immediately after payment is completed.</td>
+            </tr>
+            <tr>
+                <th>Refunds</th>
+                <td>Due to the nature of digital content, refunds are generally not accepted after purchase. Refunds via Google Play are subject to Google's refund policy.<br>
+                    As this product is digital content, it is not subject to the statutory cooling-off period under Japan's Act on Specified Commercial Transactions.</td>
+            </tr>
+            <tr>
+                <th>Requirements</th>
+                <td>Android 8.0 (API level 26) or higher.</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>FurBrief Premium can be used on multiple devices signed in with the same Google account from a single purchase. The "Restore Purchase" feature in the app lets you carry over your Pro plan after a device change.<br>
+                    This app is a record-keeping aid for pet visits and does not replace veterinary diagnosis.</td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            Last Updated: June 21, 2026<br>
+            © 2026 BunDev
+        </div>
+    </div>
 </div>
+
+<script>
+function setLang(lang) {
+    document.getElementById('content-ja').classList.toggle('hidden', lang !== 'ja');
+    document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+</script>
 </body>
 </html>
